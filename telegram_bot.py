@@ -1,7 +1,7 @@
 import requests
 
-BOT_TOKEN = "توکن_اینجا"
-CHAT_ID = "چت_آیدی_اینجا"
+BOT_TOKEN = "8682677437:AAGLa5uwyFFD3quE23kjhREeJWuw7GuaZV4"
+CHAT_ID = "37309327"
 
 
 def send_message(text):
