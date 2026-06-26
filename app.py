@@ -1,7 +1,7 @@
 import time
 
-print("Bourse Bot Started")
+print("Bourse Bot Started", flush=True)
 
 while True:
-    print("alive...")
-    time.sleep(10)
+    print("alive...", flush=True)
+    time.sleep(5)
