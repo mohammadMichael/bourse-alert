@@ -1,34 +1,34 @@
 import time
-from telegram_bot import send_message
-from market import get_market_data
-from filters import apply_filter
 
 print("Bot Started", flush=True)
-send_message("📡 Bot Started")
+
+# تست import مرحله‌ای
+try:
+    from telegram_bot import send_message
+    print("telegram ok", flush=True)
+except Exception as e:
+    print("telegram import error:", e, flush=True)
+    send_message = None
+
+try:
+    from market import get_market_data
+    print("market ok", flush=True)
+except Exception as e:
+    print("market import error:", e, flush=True)
+
+try:
+    from filters import apply_filter
+    print("filters ok", flush=True)
+except Exception as e:
+    print("filters import error:", e, flush=True)
+
+# تست تلگرام بدون crash
+if send_message:
+    try:
+        send_message("📡 Bot Started")
+    except Exception as e:
+        print("telegram send error:", e, flush=True)
 
 while True:
-    print("Fetching market data...", flush=True)
-
-    data = get_market_data()
-    print(f"DATA SIZE: {len(data)}", flush=True)
-
-    results = []
-
-    for item in data:
-        try:
-            result = apply_filter(item)
-            if result:
-                results.append(result)
-        except Exception as e:
-            print(f"ERROR: {e}", flush=True)
-
-    print(f"RESULTS: {len(results)}", flush=True)
-
-    if results:
-        msg = "📊 Signals:\n\n"
-        for r in results[:10]:
-            msg += f"{r['symbol']} → {r['score']}\n"
-
-        send_message(msg)
-
-    time.sleep(60)
+    print("loop alive", flush=True)
+    time.sleep(10)
