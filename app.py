@@ -1,7 +1,7 @@
 import time
 
-print("Bourse Alert Bot Started...")
+print("Bourse Bot Started")
 
 while True:
-    print("Bot is alive...")
+    print("alive...")
     time.sleep(10)
