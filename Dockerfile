@@ -4,4 +4,6 @@ WORKDIR /app
 
 COPY . .
 
+RUN ls -la
+
 CMD ["python", "app.py"]
